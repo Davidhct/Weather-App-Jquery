@@ -1,0 +1,50 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+
+  /* justify-content: center; */
+}
+
+h1 {
+  text-align: center;
+}
+
+.search-wrappper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 2px solid #00ceef;
+}
+.search-input {
+  width: 89%;
+  padding: 7px;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.search-icon {
+  cursor: pointer;
+  /* width: 30px; */
+}
+
+.day-card {
+  display: flex;
+  flex-direction: column;
+}
+.cards {
+  display: flex;
+}
