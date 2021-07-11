@@ -12,7 +12,6 @@ function listenerSearchIcon() {
 async function getWeatherRequest(inputVal) {
   try {
     const apiKey = "789e6aefa7f26f60027ce65cd1d704de";
-    //const urlRequest = `https://api.openweathermap.org/data/2.5/forecast?q=${inputVal}&appid=${key}`;
 
     const res = await fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${inputVal}&units=metric&appid=${apiKey}`
@@ -43,6 +42,7 @@ function renderWeather(weatherData) {
   $(".city-name").append(`${weatherData.city.name}`);
 
   let daysWeatherHtml = "";
+
   let days = weatherData.list.filter(
     (item) => new Date(item.dt_txt).getHours() === 15
   );
