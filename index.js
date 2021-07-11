@@ -20,7 +20,7 @@ function listenerSearchIcon() {
       }
       getWeatherRequest(inputVal);
       $(".search-input").val("");
-      // clockDisplay();
+
       globalVal.inputCount = globalVal.inputCount + 1;
     }
   });
@@ -82,6 +82,8 @@ function renderWeather(weatherData) {
   });
 
   $(".cards").append(daysWeatherHtml);
+
+  // clockDisplay();
 }
 
 function modifyDate(dt) {
@@ -91,20 +93,22 @@ function modifyDate(dt) {
   return date;
 }
 
-setInterval(() => {
-  const time = new Date();
-  // const month = time.getMonth();
-  // const date = time.getDate();
-  const hours = time.getHours();
-  hours % 3 === 0
-    ? (globalVal.wetherTime = hours)
-    : (globalVal.wetherTime = 15);
+function clockDisplay() {
+  setInterval(() => {
+    const time = new Date();
+    // const month = time.getMonth();
+    // const date = time.getDate();
+    const hours = time.getHours();
+    hours % 3 === 0
+      ? (globalVal.wetherTime = hours)
+      : (globalVal.wetherTime = 15);
 
-  // const hoursIn2hrFormat = hours >= 13 ? hours % 12 : hours;
-  let minutes = time.getMinutes();
-  const ampm = hours >= 12 ? "PM" : "AM";
-  minutes = minutes < 9 && minutes >= 0 ? "0".concat(minutes) : minutes;
-  let clock = hours + ":" + minutes + " " + ampm;
-  $(".clock").html(clock);
-  //   console.log(month);
-}, 1000);
+    // const hoursIn2hrFormat = hours >= 13 ? hours % 12 : hours;
+    let minutes = time.getMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    minutes = minutes < 9 && minutes >= 0 ? "0".concat(minutes) : minutes;
+    let clock = hours + ":" + minutes + " " + ampm;
+    $(".clock").html(clock);
+    //   console.log(month);
+  }, 1000);
+}
