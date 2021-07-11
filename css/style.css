@@ -9,12 +9,17 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 30px;
-
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
   /* justify-content: center; */
+  background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .search-wrappper {
@@ -27,6 +32,7 @@ h1 {
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
   border: 2px solid #00ceef;
+  margin-bottom: 2rem;
 }
 .search-input {
   width: 89%;
@@ -40,11 +46,41 @@ h1 {
   cursor: pointer;
   /* width: 30px; */
 }
+main {
+  display: flex;
+  /* border: solid red; */
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+}
+main > h2 {
+  margin-bottom: 1rem;
+}
 
 .day-card {
   display: flex;
   flex-direction: column;
+  border: none;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  background-color: rgba(129, 125, 125, 0.5);
+  color: rgb(231, 231, 231);
+  border-radius: 10px;
 }
 .cards {
   display: flex;
+  width: 86%;
+  /* border: solid; */
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.day {
+  text-align: center;
+  background-color: rgba(56, 55, 55, 0.5);
+  border-radius: 10px;
+  margin-bottom: 0.6rem;
+}
+.temp {
+  font-size: 30px;
 }
