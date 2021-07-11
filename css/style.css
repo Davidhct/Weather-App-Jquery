@@ -66,13 +66,16 @@ main > h2 {
   background-color: rgba(129, 125, 125, 0.5);
   color: rgb(231, 231, 231);
   border-radius: 10px;
+  width: 183px;
+  margin: 1rem;
 }
 .cards {
   display: flex;
   width: 86%;
   /* border: solid; */
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  text-align: center;
 }
 
 .day {
