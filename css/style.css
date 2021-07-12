@@ -133,6 +133,6 @@ main > h2 {
     background-image: url("https://images.unsplash.com/photo-1446038236174-69712e24d137?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80");
     background-repeat: var(--repeat);
 
-    background-size: 440px 650px;
+    background-size: 440px 700px;
   }
 }
