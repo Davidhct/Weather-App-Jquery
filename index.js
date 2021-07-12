@@ -2,9 +2,42 @@ $(document).ready(function () {
   listenerSearchIcon();
 });
 
+$(document).keypress((event) => {
+  if (event.which === 13) {
+    event.preventDefault();
+    $("#searchIcon").click();
+  }
+});
+
 const globalVal = {
   wetherTime: undefined,
   inputCount: 0,
+  monthNames: [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ],
+  daysInWeek: [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ],
+  day: "",
+  month: "",
+  year: "",
 };
 
 function listenerSearchIcon() {
@@ -46,30 +79,29 @@ async function getWeatherRequest(inputVal) {
 }
 
 function renderWeather(weatherData) {
-  const daysInWeek = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
   console.log(weatherData);
-  $(".city-name").append(`${weatherData.city.name}`);
 
+  $(".city-name").append(
+    `${weatherData.city.name}, ${weatherData.city.country}   `
+  );
+
+  clockDisplay();
   let daysWeatherHtml = "";
 
   let days = weatherData.list.filter(
-    (item) => new Date(item.dt_txt).getHours() === globalVal.wetherTime
+    (item) => new Date(item.dt_txt).getHours() === 15
   );
-
-  days.forEach((element) => {
+  toDayDate(days[0]);
+  days.forEach((element, index) => {
     const day = new Date(element.dt_txt);
     let date = modifyDate(element.dt_txt);
+
+    let className = "hidden";
+    if (index === 0) className = "to-day";
+
     daysWeatherHtml += `
-      <div class="day-card">
-      <div class="day">${daysInWeek[day.getDay()]}</div>
+      <div class="day-card ${className}">
+      <div class="day">${globalVal.daysInWeek[day.getDay()]}</div>
       <div class="date">${date}</div>
       <div class="temp">${element.main.temp.toFixed(1)}9&#176C</div>
       <img src="http://openweathermap.org/img/wn/${
@@ -82,33 +114,37 @@ function renderWeather(weatherData) {
   });
 
   $(".cards").append(daysWeatherHtml);
-
-  // clockDisplay();
 }
 
 function modifyDate(dt) {
   let [date, _] = dt.split(" ");
-  date = date.replaceAll("-", ".");
+  const [year, month, day] = date.split("-");
+  if (month[0] === "0") tmpMonth = month[1];
+  else tmpMonth = month;
+
+  date = ` ${day}.${month}.${year}`;
 
   return date;
+}
+
+function toDayDate(toDay) {
+  const day = new Date(toDay.dt_txt);
+
+  $(".date-name").append(
+    `${globalVal.daysInWeek[day.getDay()]} ${
+      globalVal.monthNames[day.getMonth()]
+    }, ${day.getFullYear()}`
+  );
 }
 
 function clockDisplay() {
   setInterval(() => {
     const time = new Date();
-    // const month = time.getMonth();
-    // const date = time.getDate();
     const hours = time.getHours();
-    hours % 3 === 0
-      ? (globalVal.wetherTime = hours)
-      : (globalVal.wetherTime = 15);
-
-    // const hoursIn2hrFormat = hours >= 13 ? hours % 12 : hours;
     let minutes = time.getMinutes();
     const ampm = hours >= 12 ? "PM" : "AM";
-    minutes = minutes < 9 && minutes >= 0 ? "0".concat(minutes) : minutes;
+    minutes = minutes >= 0 && minutes <= 9 ? `0${minutes}` : minutes;
     let clock = hours + ":" + minutes + " " + ampm;
     $(".clock").html(clock);
-    //   console.log(month);
   }, 1000);
 }

@@ -54,7 +54,23 @@ main {
   align-items: center;
 }
 main > h2 {
+  margin-bottom: 0.5rem;
+  background-color: rgba(56, 55, 55, 0.5);
+  padding: 0 10px 0 10px;
+  color: rgb(231, 231, 231);
+  border-radius: 15px;
+}
+
+.city-time {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  /* border: solid; */
   margin-bottom: 1rem;
+}
+.date-name {
+  margin-bottom: 0.5rem;
 }
 
 .day-card {
@@ -68,6 +84,9 @@ main > h2 {
   border-radius: 10px;
   width: 183px;
   margin: 1rem;
+}
+.to-day {
+  border: 3px solid rgb(59 252 88);
 }
 .cards {
   display: flex;
