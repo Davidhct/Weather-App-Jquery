@@ -11,7 +11,6 @@ $(document).keypress((event) => {
 
 const globalVal = {
   wetherTime: undefined,
-  inputCount: 0,
   monthNames: [
     "January",
     "February",
@@ -35,9 +34,6 @@ const globalVal = {
     "Friday",
     "Saturday",
   ],
-  day: "",
-  month: "",
-  year: "",
 };
 
 function listenerSearchIcon() {
@@ -46,15 +42,12 @@ function listenerSearchIcon() {
     if (inputVal === "") {
       alert(new Error(`You did not enter nothing! 🧨`));
     } else {
-      if (globalVal.inputCount === 1) {
-        $(".cards").empty();
-        $(".city-name").empty();
-        globalVal.inputCount === 0;
-      }
+      $(".cards").empty();
+      $(".city-name").empty();
+      $(".date-name").empty();
+
       getWeatherRequest(inputVal);
       $(".search-input").val("");
-
-      globalVal.inputCount = globalVal.inputCount + 1;
     }
   });
 }
@@ -74,7 +67,7 @@ async function getWeatherRequest(inputVal) {
 
     return `Weather data: ${weatherData}`;
   } catch (err) {
-    console.error(`${err.message} 🧨`);
+    console.error(alert(`${err.message} 🧨`));
   }
 }
 
@@ -119,6 +112,7 @@ function renderWeather(weatherData) {
 function modifyDate(dt) {
   let [date, _] = dt.split(" ");
   const [year, month, day] = date.split("-");
+
   if (month[0] === "0") tmpMonth = month[1];
   else tmpMonth = month;
 
