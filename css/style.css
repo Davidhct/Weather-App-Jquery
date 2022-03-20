@@ -13,15 +13,20 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 30px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 900;
   /* justify-content: center; */
-  background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80");
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80');
   background-repeat: var(--repeat);
   background-size: cover;
   background-attachment: fixed;
 }
-
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
 h1 {
   text-align: center;
   margin-bottom: 0.5rem;
@@ -53,10 +58,9 @@ h1 {
 }
 main {
   display: flex;
-  /* border: solid red; */
-  width: 100vw;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 main > h2 {
   margin-bottom: 0.5rem;
@@ -114,7 +118,7 @@ main > h2 {
 
 @media only screen and (max-width: 960px) {
   body {
-    background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80");
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80');
     background-repeat: var(--repeat);
 
     background-size: 1000px 700px;
@@ -122,7 +126,7 @@ main > h2 {
 }
 @media only screen and (max-width: 640px) {
   body {
-    background-image: url("https://images.unsplash.com/photo-1446038236174-69712e24d137?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80");
+    background-image: url('https://images.unsplash.com/photo-1446038236174-69712e24d137?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80');
     background-repeat: var(--repeat);
 
     background-size: 660px 750px;
@@ -131,7 +135,7 @@ main > h2 {
 
 @media only screen and (max-width: 425px) {
   body {
-    background-image: url("https://images.unsplash.com/photo-1446038236174-69712e24d137?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80");
+    background-image: url('https://images.unsplash.com/photo-1446038236174-69712e24d137?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80');
     background-repeat: var(--repeat);
 
     background-size: 440px 750px;
